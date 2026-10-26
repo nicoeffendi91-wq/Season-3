@@ -101,9 +101,11 @@ ul.list li::before{content:"";position:absolute;left:.2rem;top:.65em;width:7px;h
   <i class="deco dots dots--a"></i><i class="deco dots dots--b"></i>
 
   <header class="head">
-    <div class="photo" id="photo"></div>
-    <div>
-      <h1 id="nama"></h1>
+  <div class="photo" id="photo">
+    <img src="foto.jpg" alt="Foto Nico Effendi">
+  </div>
+  <div>
+    <h1 id="nama"></h1>
       <p class="role" id="peran"></p>
       <ul class="contact" id="kontak"></ul>
     </div>
@@ -164,7 +166,6 @@ const data = {
   ],
   keterampilan: ["HTML", "CSS", "JavaScript", "Git & GitHub", "Figma", "Responsive design"]
 };
-/* ====== SELESAI ====== */
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
