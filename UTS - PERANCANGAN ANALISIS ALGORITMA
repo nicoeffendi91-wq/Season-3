@@ -1,0 +1,35 @@
+kapasitas = 10
+
+files = [{"nama": "File A", "ukuran": 4, "prioritas": 8},
+    {"nama": "File B", "ukuran": 3, "prioritas": 9},
+    {"nama": "File C", "ukuran": 2, "prioritas": 6},
+    {"nama": "File D", "ukuran": 5, "prioritas": 5},
+    {"nama": "File E", "ukuran": 1, "prioritas": 7}]
+
+for file in files:
+    file["rasio"] = file["prioritas"] / file["ukuran"]
+
+files.sort(key=lambda x: (x["rasio"], x["prioritas"]),reverse=True)
+
+terpilih = []
+total_ukuran = 0
+total_prioritas = 0
+
+for file in files:
+    if total_ukuran + file["ukuran"] <= kapasitas:
+        terpilih.append(file)
+        total_ukuran += file["ukuran"]
+        total_prioritas += file["prioritas"]
+
+print("=== PENGELOLAAN RUANG PENYIMPANAN ===")
+print("Kapasitas:", kapasitas, "GB")
+
+print("\nFile yang Terpilih:")
+for file in terpilih:
+    print(file["nama"], "-",file["ukuran"], "GB","- Prioritas:", file["prioritas"])
+
+print("\n=== HASIL AKHIR ===")
+print("Total File Terpilih:", len(terpilih))
+print("Total Kapasitas Terpakai:", total_ukuran, "GB")
+print("Sisa Kapasitas:", kapasitas - total_ukuran, "GB")
+print("Total Nilai Prioritas:", total_prioritas)
