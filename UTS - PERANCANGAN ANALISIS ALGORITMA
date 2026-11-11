@@ -1,10 +1,10 @@
 kapasitas = 10
 
-files = [{"nama": "File Foto", "ukuran": 4, "prioritas": 8},
-    {"nama": "File Kerja", "ukuran": 3, "prioritas": 9},
-    {"nama": "File Lecture ", "ukuran": 2, "prioritas": 6},
-    {"nama": "File Video", "ukuran": 5, "prioritas": 5},
-    {"nama": "File Aplikasi", "ukuran": 1, "prioritas": 7}]
+files = [{"nama": "File A", "ukuran": 4, "prioritas": 8},
+    {"nama": "File B", "ukuran": 3, "prioritas": 9},
+    {"nama": "File C", "ukuran": 2, "prioritas": 6},
+    {"nama": "File D", "ukuran": 5, "prioritas": 5},
+    {"nama": "File E", "ukuran": 1, "prioritas": 7}]
 
 for file in files:
     file["rasio"] = file["prioritas"] / file["ukuran"]
