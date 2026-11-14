@@ -1,0 +1,38 @@
+print("=== PENGELOLAAN RUANG PENYIMPANAN ===")
+
+kapasitas = int(input("Masukkan kapasitas penyimpanan (GB): "))
+jumlah_file = int(input("Masukkan jumlah file ( misalkan 4 ): "))
+files = []
+
+for i in range(jumlah_file):
+    print("\File ke-", i + 1)
+    nama = input("Masukkan nama file: ")
+    ukuran = int(input("Masukkan ukuran file (GB): "))
+    prioritas = int(input("Masukkan prioritas file: "))
+    files.append({"nama": nama,"ukuran": ukuran,"prioritas": prioritas})
+
+for file in files:
+    file["rasio"] = file["prioritas"] / file["ukuran"]
+files.sort(key=lambda x: (x["rasio"], x["prioritas"]), reverse=True)
+
+terpilih = []
+total_ukuran = 0
+total_prioritas = 0
+
+for file in files:
+    if total_ukuran + file["ukuran"] <= kapasitas:
+        terpilih.append(file)
+        total_ukuran += file["ukuran"]
+        total_prioritas += file["prioritas"]
+
+print("=== HASIL GREEDY ===")
+print("Kapasitas:", kapasitas, "GB")
+print("\File yang Terpilih:")
+for file in terpilih:
+    print(file["nama"], "-", file["ukuran"], "GB", "- Prioritas:", file["prioritas"])
+
+print("=== HASIL PENGELOLAAN PENYIMPANAN ===")
+print("Total File Terpilih:", len(terpilih))
+print("Total Kapasitas Terpakai:", total_ukuran, "GB")
+print("Sisa Kapasitas:", kapasitas - total_ukuran, "GB")
+print("Total Nilai Prioritas:", total_prioritas)
