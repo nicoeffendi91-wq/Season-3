@@ -1,4 +1,3 @@
-
 print("=== PENGELOLAAN RUANG PENYIMPANAN ===")
 
 kapasitas = int(input("Masukkan kapasitas penyimpanan (GB): "))
